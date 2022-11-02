@@ -15,4 +15,6 @@ public class Product
     public int CategoryId { get; set; }
     [ValidateNever]
     public Category Category { get; set; }
+
+    public string Name { get; set; }
 }

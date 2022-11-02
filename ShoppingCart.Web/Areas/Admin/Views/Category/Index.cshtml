@@ -1,0 +1,32 @@
+@model ShoppingCart.DataAccess.ViewModels.CategoryVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<p>
+    <a asp-action="CreateUpdate">Create New</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Display Order</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.categories)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.DisplayOrder</td>
+            <td>
+                @Html.ActionLink("Edit", "CreateUpdate", new { id=item.Id }) |
+                @Html.ActionLink("Details", "CreateUpdate", new { id=item.Id })
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id})
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
