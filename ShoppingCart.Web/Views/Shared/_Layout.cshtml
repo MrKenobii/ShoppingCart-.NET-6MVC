@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - ShoppingCart.Web</title>
     <link rel="stylesheet" href="~/css/Sketchy.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShoppingCart.Web.styles.css" asp-append-version="true"/>
 </head>
 <body>
@@ -24,7 +25,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a asp-area="Admin" asp-action="Index" asp-controller="Category">Category</a>
+              <a asp-area="Admin" asp-action="Index" asp-controller="Category" class="nav-link">Category</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
@@ -84,6 +85,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

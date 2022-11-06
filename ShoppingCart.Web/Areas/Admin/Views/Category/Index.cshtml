@@ -4,29 +4,41 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-<p>
-    <a asp-action="CreateUpdate">Create New</a>
-</p>
-<table class="table">
+<div class="container p-4">
+    <div class="row p-3">
+        <div class="col-6">
+            <h2 class="text-primary">List of Categories</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-primary" asp-action="CreateUpdate" asp-controller="Category">
+                <i class="bi bi-plus-circle"></i>&nbsp;Create new Category
+            </a>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered table-striped" style="width: 100%">
     <thead>
     <tr>
-        <th>Name</th>
+        <th>Category Name</th>
         <th>Display Order</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.categories)
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.DisplayOrder</td>
-            <td>
-                @Html.ActionLink("Edit", "CreateUpdate", new { id=item.Id }) |
-                @Html.ActionLink("Details", "CreateUpdate", new { id=item.Id })
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id})
-            </td>
-        </tr>
-    }
+        @foreach (var item in Model.categories)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.DisplayOrder</td>
+                <td role="group">
+                    <a asp-action="CreateUpdate" asp-controller="Category" asp-route-id="@item.Id">
+                        <i class="bi bi-pencil-square">Edit</i>
+                    </a>
+                    <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id">
+                        <i class="bi bi-trash">Delete</i>
+                    </a>
+                </td>
+            </tr>
+        }    
     </tbody>
 </table>
